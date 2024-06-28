@@ -1,0 +1,56 @@
+{
+  "private": true,
+  "engines": {
+    "node": "14.x"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.22",
+    "@emotion/styled": "^10.0.23",
+    "color": "^3.1.2",
+    "luxon": "^1.21.3",
+    "next": "^9.3.2",
+    "prettier": "^1.19.1",
+    "prism-react-renderer": "^1.0.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-spring": "^8.0.27"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build && next export",
+    "start": "next start",
+    "tsc": "tsc",
+    "ts-node": "ts-node",
+    "eslint": "eslint --ext .js,.ts,.tsx .",
+    "eslint:fix": "eslint --ext .js,.ts,.tsx --fix .",
+    "svgr": "svgr --ext tsx --no-svgo --no-dimensions -d .",
+    "snippets": "yarn runSnippet snippets/bin/generateSnippetsBundle.ts",
+    "runSnippet": "ts-node --project tsconfig.snippets.json"
+  },
+  "devDependencies": {
+    "@svgr/cli": "^4.3.3",
+    "@types/color": "^3.0.0",
+    "@types/glob": "^7.1.1",
+    "@types/luxon": "^1.21.0",
+    "@types/node": "^12.12.20",
+    "@types/prettier": "^1.19.0",
+    "@types/react": "^16.9.16",
+    "@types/react-dom": "^16.9.4",
+    "@typescript-eslint/eslint-plugin": "^2.12.0",
+    "@typescript-eslint/parser": "^2.12.0",
+    "babel-eslint": "^10.0.3",
+    "babel-plugin-emotion": "^10.0.23",
+    "chokidar": "^3.3.1",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "2.3.0",
+    "glob": "^7.1.6",
+    "now": "^16.7.0",
+    "prettier": "^1.19.1",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.3"
+  }
+}

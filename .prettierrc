@@ -1,0 +1,24 @@
+{
+  "semi": false,
+  "singleQuote": true,
+  "overrides": [
+    {
+      "files": "snippets/snippets/**/*.ts",
+      "options": {
+        "printWidth": 48
+      }
+    },
+    {
+      "files": ["snippets/snippets/**/longerWidth/*.ts"],
+      "options": {
+        "printWidth": 53
+      }
+    },
+    {
+      "files": ["snippets/snippets/**/ignoreWidth/*.ts"],
+      "options": {
+        "printWidth": 120
+      }
+    }
+  ]
+}
