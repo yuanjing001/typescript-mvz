@@ -3,7 +3,7 @@ import { css, jsx } from '@emotion/core'
 import PostPage from 'src/components/PostPage'
 import EmojiSeparator from 'src/components/EmojiSeparator'
 import Emoji from 'src/components/Emoji'
-import { Code, A, P, Highlight, Ul, UlLi } from 'src/components/ContentTags'
+import { Code, P, Highlight, Ul, UlLi } from 'src/components/ContentTags'
 import * as snippets from 'src/lib/snippets'
 import TodoWithData, { Todo } from 'src/components/TodoWithData'
 import RunButtonText from 'src/components/RunButtonText'
@@ -12,7 +12,6 @@ import BubbleQuotes from 'src/components/BubbleQuotes'
 import ResultHighlight from 'src/components/ResultHighlight'
 import PlaceLabel from 'src/components/PlaceLabel'
 import InternalLink from 'src/components/InternalLink'
-import AboutMe from 'src/components/AboutMe'
 
 const compileSuccess = 'Compiled successfully!'
 const section1 = '类型、只读属性和映射类型'
@@ -43,16 +42,10 @@ const placesExample: Todo[] = [
 const UnionTypesSummary = () => (
   <>
     <Ul>
+      <UlLi>如果我们有一个联合类型的变量（比如说place）...</UlLi>
+      <UlLi>并在if/else中检查其值...</UlLi>
       <UlLi>
-        If we have a variable that’s a <strong>union type</strong> (e.g.{' '}
-        <Code>place</Code>)…
-      </UlLi>
-      <UlLi>
-        And check for its value in <Code>if/else</Code>…
-      </UlLi>
-      <UlLi>
-        Then TypeScript is smart about what the variable’s possible values are
-        for each branch of <Code>if/else</Code>.
+        那么TypeScript就会对变量在if/else的每个分支的可能值进行智能处理。
       </UlLi>
     </Ul>
     <CodeBlock
@@ -284,7 +277,8 @@ const Page = () => (
               snippet={snippets.reel}
               caption={
                 <>
-                  <Emoji type="chickEgg" /> 小丫实现的
+                  <Emoji type="chickEgg" />
+                  黄小鸭实现的
                   <Code>toggleTodo()</Code>
                 </>
               }
@@ -1096,24 +1090,18 @@ const Page = () => (
       {
         title: (
           <>
-            <strong>Section 3</strong> of 3
+            <strong>第 3 部分</strong>（共 3 部分）
           </>
         ),
         heading: section3,
         color: 'darkGreen'
       },
       {
-        title: <>New Feature: Place tags</>,
+        title: <>新功能:地点标签</>,
         content: (
           <>
-            <P>
-              Let’s add a new feature to our todo app:{' '}
-              <strong>Place tags</strong>.
-            </P>
-            <P>
-              Each todo item can now <em>optionally</em> be tagged with one of
-              the following <em>pre-defined</em> tags:
-            </P>
+            <P>让我们为我们的todo应用程序添加一个新功能位置标签。</P>
+            <P>每个待办事项现在都可以选择用以下预定义的标签之一来标记。</P>
             <Ul>
               <UlLi>
                 <PlaceLabel place="home" />
@@ -1122,36 +1110,29 @@ const Page = () => (
                 <PlaceLabel place="work" />
               </UlLi>
             </Ul>
-            <P>
-              Each todo item can also be tagged with a custom,{' '}
-              <em>user-defined</em> tags:
-            </P>
+            <P>每个待办事项也可以用自定义的、用户定义的标签来标记。</P>
             <Ul>
               <UlLi>
                 <PlaceLabel place={{ custom: 'Gym' }} />,{' '}
-                <PlaceLabel place={{ custom: 'Supermarket' }} />, etc—the user
-                can create any custom place they want.
+                <PlaceLabel place={{ custom: 'Supermarket' }} />,
+                用户可以创建任何他们想要的自定义地点标签。
               </UlLi>
             </Ul>
             <P>
-              Users can use this feature to identify which tasks need to be done
-              at home, at work, or elsewhere. It’s <strong>optional</strong>, so
-              there can be a todo item without a place tag.
+              用户可以使用这一功能来确定哪些任务需要在家里、在工作场所或其他地方完成。它是可选的，所以可以有一个没有地点标签的todo项目。
             </P>
-            <P>Here’s an example:</P>
+            <P>下面是一个示例：</P>
             <TodoWithData
               caption={
                 <>
-                  Each todo item can now optionally be tagged with a{' '}
+                  现在可以选择为每个待办事项添加地点标签
                   <strong>place tag</strong>
                 </>
               }
               defaultData={placesExample}
             />
             <P>
-              Let’s take a look at the associated data. Each todo can now have
-              an optional <Code>place</Code> property, which determines the
-              place tag:
+              让我们看一下相关的数据。每个todo现在可以有一个可选的place属性，它决定了place标签。
             </P>
             <Ul>
               <UlLi>
@@ -1167,10 +1148,7 @@ const Page = () => (
                 → <PlaceLabel place="work" />
               </UlLi>
             </Ul>
-            <P>
-              For custom places, the <Code>place</Code> property will be an
-              object containing a string <Code>custom</Code> property:
-            </P>
+            <P>对于自定义地点，地点属性将是一个包含字符串自定义属性的对象。</P>
             <Ul>
               <UlLi>
                 <Code>
@@ -1185,11 +1163,8 @@ const Page = () => (
                 → <PlaceLabel place={{ custom: 'Supermarket' }} />
               </UlLi>
             </Ul>
-            <P>
-              The <Code>place</Code> property can also be missing if there’s no
-              place tag.
-            </P>
-            <P>Here’s the associated data for our previous example:</P>
+            <P>如果一个项目没有地方标签，那么地方属性也可以没有。</P>
+            <P>下面是我们前面例子的相关数据:</P>
             <TodoWithData
               showData
               defaultData={placesExample}
@@ -1201,9 +1176,7 @@ const Page = () => (
               }
             />
             <P>
-              To implement this in TypeScript, we first need to update our
-              definition of the <Code>Todo</Code> type. Let’s take a look at
-              this next!
+              为了在TypeScript中实现这一点，我们首先需要更新我们对Todo类型的定义。让我们接下来看看这个吧。
             </P>
             <CodeBlock
               snippet={snippets.yztr}
@@ -1213,17 +1186,16 @@ const Page = () => (
         )
       },
       {
-        title: <>Union types</>,
+        title: <>联合类型</>,
         content: (
           <>
             <P>
-              To implement place tags, we can use a TypeScript feature called{' '}
+              为了实现位置标签，我们可以使用TypeScript的一个功能，即联合类型。
               <strong>union types</strong>.
             </P>
             <P>
-              In TypeScript, you can use the syntax <Code>A | B</Code> to create
-              a <strong>union type</strong>, which represents a type that’s{' '}
-              either <Code>A</Code> or <Code>B</Code>.
+              在TypeScript中，你可以使用语法A |
+              B来创建一个联合类型，它表示一个类型是A或B。
             </P>
             <EmojiSeparator
               emojis={['a', 'verticalBar', 'b']}
@@ -1235,9 +1207,8 @@ const Page = () => (
               }
             />
             <P>
-              For example, if you create a type that’s equal to{' '}
-              <Code>number | string</Code>, it can be either <Code>number</Code>{' '}
-              OR <Code>string</Code>:
+              例如，如果你创建一个等于 number|string
+              的类型，它可以是数字或字符串。
             </P>
             <CodeBlock
               snippet={snippets.mzyn}
@@ -1246,8 +1217,7 @@ const Page = () => (
               }
             />
             <P>
-              In our todo app, we’ll first create a new <Code>Place</Code> type
-              as a union type as follows:
+              在我们的todo应用程序中，我们将首先创建一个新的Place类型，作为一个联合类型，如下所示。
             </P>
             <CodeBlock
               narrowText
@@ -1263,14 +1233,9 @@ const Page = () => (
                 lineIndex === 0 && tokenIndex >= 6
               }
             />
-            <P>
-              Here’s an example usage of the <Code>Place</Code> type:
-            </P>
+            <P>下面是一个使用Place类型的例子。</P>
             <CodeBlock narrowText snippet={snippets.fawy} />
-            <P>
-              We can now assign the <Code>Place</Code> type to the{' '}
-              <Code>place</Code> property of <Code>Todo</Code>:
-            </P>
+            <P>我们现在可以把Place类型分配给Todo的地点属性:</P>
             <CodeBlock
               caption={
                 <>
@@ -1291,18 +1256,15 @@ const Page = () => (
         )
       },
       {
-        title: <>Optional properties</>,
+        title: <>可选属性</>,
         content: (
           <>
             <P>
-              We briefly mentioned that place tags like{' '}
-              <PlaceLabel place="home" /> or <PlaceLabel place="work" /> are{' '}
-              <strong>optional</strong>—we can have todo items without a place
-              tag.
+              我们前面简单地提到，像家或工作这样的地点标签是可选的--我们可以有没有地点标签的todo项目。
             </P>
             <P>
-              In our previous example, “Read a book” didn’t have any place tag,
-              so it didn’t have any <Code>place</Code> property:
+              在我们之前的例子中，"读一本书
+              "没有任何地点标签，所以它没有任何地点属性。
             </P>
             <TodoWithData
               showData
@@ -1317,10 +1279,8 @@ const Page = () => (
               shouldAlwaysHighlight={lineIndex => lineIndex === 6}
             />
             <P>
-              Can TypeScript describe these <em>optional properties</em>? Of
-              course it can. In TypeScript, you can add a{' '}
-              <strong>question mark</strong> (<Code>?</Code>) after a property
-              name to make the property optional:
+              TypeScript
+              能否描述这些可选属性？当然可以。在TypeScript中，你可以在属性名称后面添加一个问号(?)来使该属性成为可选项。
             </P>
             <CodeBlock
               snippet={snippets.yvpp}
@@ -1329,7 +1289,8 @@ const Page = () => (
               }
             />
             <P>
-              In our example, instead of <Code>place: Place</Code>, we can use{' '}
+              在我们的例子中，不使用place: Place，我们可以使用place?:
+              Place来使其成为可选项。
               <Code>
                 <strong>place?</strong>: Place
               </Code>{' '}
@@ -1342,29 +1303,21 @@ const Page = () => (
                 lineIndex === 7 && tokenIndex <= 1
               }
             />
-            <P>That’s it! We’re now ready to use these types in a function.</P>
+            <P>现在，我们准备在一个函数中使用这些类型。</P>
           </>
         )
       },
       {
-        title: (
-          <>
-            Implementing <Code>placeToString()</Code>
-          </>
-        ),
+        title: <>实现placeToString()</>,
         content: (
           <>
-            <P>
-              As mentioned before, UI libraries like React or Vue{' '}
-              <em>transform data into UI</em>.
-            </P>
+            <P>正如上文所说，React或Vue等UI库将数据转化为UI。</P>
             <EmojiSeparator
               emojis={['data', 'singleArrow', 'ui']}
               description={<>UI libraries transform data into UI</>}
             />
             <P>
-              For place labels, we need to transform each <Code>Place</Code>{' '}
-              data into a place label UI:
+              对于地方标签，我们需要将每个地方的数据转化为地方标签用户界面。
             </P>
             <EmojiSeparator
               size="sm"
@@ -1418,46 +1371,31 @@ const Page = () => (
               }
             />
             <P>
-              To do this, we’d like to implement a function called{' '}
-              <Code>
-                <strong>placeToString()</strong>
-              </Code>
-              , which has the following input and output:
+              要做到这一点，我们想实现一个叫做placeToString()的函数，它的输入和输出如下
             </P>
             <Ul>
+              <UlLi>输入应该是一个地方。例如：'work'。</UlLi>
               <UlLi>
-                <strong>Input</strong> should be a <Code>Place</Code>. Example:{' '}
-                <Code>'work'</Code>.
-              </UlLi>
-              <UlLi>
-                <strong>Return value</strong> should be a{' '}
-                <strong>string</strong> (with an emoji) that will be used for
-                the label UI. Example:{' '}
-                <Code>
-                  '<Emoji type="work" /> Work'
-                </Code>
-                .
+                返回值应该是一个字符串（有一个表情符号），将用于标签用户界面
               </UlLi>
             </Ul>
-            <P>Here are the examples:</P>
+            <P> 下面是示例:</P>
             <CodeBlock snippet={snippets.qnrh} />
             <P>
-              We can then use its return value to render place label UIs:{' '}
+              然后，我们可以使用它的返回值来渲染地方标签UI：
               <PlaceLabel place="home" />, <PlaceLabel place="work" />,{' '}
-              <PlaceLabel place={{ custom: 'Gym' }} />, etc in any UI library.
-              For example, in React, you can define a functional component and
-              call <Code>placeToString()</Code> inside it.
+              <PlaceLabel place={{ custom: 'Gym' }} />
+              等等地方。例如，在React中，你可以定义一个功能组件并在其中调用placeToString()。
             </P>
             <P>
-              Let’s now implement <Code>placeToString()</Code>. Here’s the
-              starter code—can you figure out what goes inside?
+              现在让我们来实现placeToString()。下面是启动代码--你能弄清楚里面的内容吗？
             </P>
             <CodeBlock snippet={snippets.ybhj} />
           </>
         )
       },
       {
-        title: <>Little Duckling’s implementation</>,
+        title: <>小黄鸭的实现</>,
         content: (
           <>
             <BubbleQuotes
@@ -1492,10 +1430,9 @@ const Page = () => (
               }
             />
             <P>
-              <strong>It failed!</strong> TypeScript noticed that there’s a
-              logic error here. Specifically, inside <Code>else</Code>,
-              TypeScript knows that <Code>place</Code> is either{' '}
-              <Code>'work'</Code> or <Code>{`{ custom: string }`}</Code>:
+              编译失败了!
+              TypeScript注意到，这里有一个逻辑错误。具体来说，在else里面，TypeScript知道place是
+              <Code>'work'</Code>或者 <Code>{`{ custom: string }`}</Code>:
             </P>
             <CodeBlock
               narrowText
@@ -1504,24 +1441,24 @@ const Page = () => (
                 lineIndex === 5 || lineIndex === 8 || lineIndex === 12
               }
             />
-            <P>Here’s what happened:</P>
+            <P>情况是这样的:</P>
             <Ul>
               <UlLi>
-                <Code>place</Code> is either <Code>'work'</Code> or{' '}
-                <Code>{`{ custom: string }`}</Code> inside <Code>else</Code>.
+                在else里面，<Code>place</Code> 不是<Code>'work'</Code>就是{' '}
+                <Code>{`{ custom: string }`}</Code>
               </UlLi>
               <UlLi>
-                And <Code>place.custom</Code> is invalid if <Code>place</Code>{' '}
-                is <Code>'work'</Code>.
+                而<Code>place.custom</Code>在 <Code>place</Code> 为
+                <Code>'work'</Code>时是无效的。
               </UlLi>
             </Ul>
-            <P>That’s why TypeScript gave you a compile error.</P>
+            <P>这就是为什么TypeScript给了你一个编译错误。</P>
             <CodeBlock
               snippet={snippets.eega}
               shouldHighlight={lineIndex => lineIndex === 2}
             />
             <P>
-              Of course, the fix is to add{' '}
+              当然，修复方法是添加
               <Code>else if (place === 'work')</Code>.{' '}
               <Highlight>
                 按下 <RunButtonText compile />!
@@ -1545,7 +1482,8 @@ const Page = () => (
                   children: (
                     <>
                       <P>
-                        Oops! <Emoji type="sweat" /> I forgot to check for{' '}
+                        哎呀！
+                        <Emoji type="sweat" /> 我忘了检查！{' '}
                         <Code>place === 'work'</Code>!
                       </P>
                     </>
@@ -1553,37 +1491,28 @@ const Page = () => (
                 }
               ]}
             />
+            <P>不用担心，小黄鸭! TypeScript能够及早发现这个错误。</P>
             <P>
-              No worries, Little Duckling! TypeScript was able to catch the
-              error early.
-            </P>
-            <P>
-              <strong>Summary:</strong> As we just saw, union types are powerful
-              when combined with conditional statements (e.g.{' '}
-              <Code>if/else</Code>):
+              <strong>摘要:</strong>{' '}
+              正如我们刚才所看到的，联合类型在与条件语句（如<Code>if/else</Code>
+              ）结合时很强大
             </P>
             <UnionTypesSummary />
-            <P>
-              That’s everything! Let’s quickly summarize what we’ve learned.
-            </P>
+            <P>这就是全部! 让我们快速总结一下我们所学到的东西。</P>
           </>
         )
       },
       {
         color: 'green',
-        subtitle: <>Section 3 Summary:</>,
-        title: <>Union types are powerful</>,
+        subtitle: <>第三部分：小结:</>,
+        title: <>联合类型非常强大</>,
         content: (
           <>
-            <P>
-              In this section, we’ve learned about union types and optional
-              properties:
-            </P>
+            <P>在本节中，我们学习了联合类型和可选属性：</P>
             <P>
               <strong>
-                1. We can use the syntax <Code>A | B</Code> to create a{' '}
-                <strong>union type</strong>, which represents a type that’s
-                either <Code>A</Code> or <Code>B</Code>.
+                1. 我们可以使用语法A |
+                B来创建一个联合类型，它表示一个要么是A要么是B的类型。
               </strong>
             </P>
             <CodeBlock
@@ -1602,8 +1531,8 @@ const Page = () => (
             />
             <P>
               <strong>
-                2. We can add a question mark (<Code>?</Code>) after a property
-                name to make the property optional.
+                2.
+                我们可以在属性名称后面添加一个问号（？），使该属性成为可选属性。
               </strong>
             </P>
             <CodeBlock
@@ -1613,18 +1542,12 @@ const Page = () => (
               }
             />
             <P>
-              Finally,{' '}
-              <strong>
-                union types are powerful when combined with conditional
-                statements (e.g. <Code>if/else</Code>).
-              </strong>
+              最后，当联合类型与条件语句（如if/else）相结合时，其功能非常强大。
             </P>
             <UnionTypesSummary />
             <P>
-              Union types are one of the best ideas of TypeScript. You should
-              use them often. There are other powerful features of union types
-              (discriminated unions, combining them with mapped types, etc)
-              which I won’t cover here.
+              联合类型是TypeScript的最佳理念之一。你应该经常使用它们。
+              联合类型还有其他强大的功能（区分的联合，将它们与映射类型相结合，等等），这里不在介绍。
             </P>
           </>
         )
@@ -1635,43 +1558,20 @@ const Page = () => (
           <>
             <EmojiSeparator emojis={['sparkles', 'chickEgg', 'sparkles']} />
             <P>
-              Thanks for reading! You should now know enough TypeScript to get
-              started with a project.
+              感谢阅读！现在你应该对 TypeScript
+              有了足够的了解，可以开始一个项目了。
             </P>
             <Ul>
               <UlLi>
-                <strong>Using React?</strong> If you’re using React,{' '}
-                <A href="https://github.com/typescript-cheatsheets/react-typescript-cheatsheet">
-                  React+TypeScript Cheatsheets
-                </A>{' '}
-                is a good reference.
-              </UlLi>
-              <UlLi>
-                <strong>What to learn next:</strong> Once you become more
-                familiar with TypeScript, you should learn{' '}
-                <strong>generics</strong> next. I’ve written an article on it
-                called “
+                下一步要学什么：一旦你对 TypeScript
+                更加熟悉，下一步就应该学习泛型。这里有一篇关于它的文章，名为
                 <InternalLink href="/generics">
-                  TypeScript Generics for People Who Gave Up on Understanding
-                  Generics
+                  为放弃理解泛型的人提供的 TypeScript 泛型教程
                 </InternalLink>
-                ”.
               </UlLi>
             </Ul>{' '}
-            <P>
-              I plan to write more TypeScript articles by continuing on the todo
-              app example I used here. To get notified when I publish a new
-              article, follow me on{' '}
-              <A href="https://twitter.com/chibicode">
-                <Emoji type="twitter" /> Twitter at @chibicode
-              </A>
-              .
-            </P>
           </>
-        ),
-        footer: {
-          content: <AboutMe />
-        }
+        )
       }
     ]}
   />

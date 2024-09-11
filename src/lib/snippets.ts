@@ -1,12 +1,12 @@
-export const bfka = `// We want to modify makeState() to support
-// creating two different states:
+export const bfka = `// 我们希望修改make state()来支持
+// 创建两种不同的states:
 
-// One that only allows numbers, and…
+// 一个只允许数字的，而且…
 const numState = makeState()
 numState.setState(1)
 console.log(numState.getState()) // 1
 
-// The other that only allows strings.
+// 另一个只允许字符串
 const strState = makeState()
 strState.setState('foo')
 console.log(strState.getState()) // foo`
@@ -300,19 +300,19 @@ regularFunc(1)
 // Error
 regularFunc('foo')`
 
-export const qqic = `// Doesn't work because the created state…
-const numAndStrState = makeState()
+export const qqic = `// 不通过，因为创建的状态…
+const numAndStrState = makeState()     
 
-// Allows both numbers…
+// 允许任何数字…
 numAndStrState.setState(1)
 console.log(numAndStrState.getState())
 
-// And strings.
+// 和字符串.
 numAndStrState.setState('foo')
 console.log(numAndStrState.getState())
 
-// This is NOT what we want. We want to create
-// a number-only state and a string-only state.`
+// 这不是我们想要的。我们想要创造
+// 仅数字和仅字符串`
 
 export const rebo = `// In the function definition of makeState()
 let state: S // <- number
@@ -709,7 +709,7 @@ const place2: Place = 'work'
 const place3: Place = { custom: 'Gym' }
 const place4: Place = { custom: 'Supermarket' }`
 
-export const ntup = `// If we have a variable that’s a union type…
+export const ntup = `// 如果我们有一个联合类型的变量（例如：place）
 type Place = 'home' | 'work' | { custom: string }
 
 function placeToString(place: Place): string {

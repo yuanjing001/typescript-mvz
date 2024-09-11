@@ -16,7 +16,6 @@ import {
   Blockquote
 } from 'src/components/ContentTags'
 import * as snippets from 'src/lib/snippets'
-import TwitterLink from 'src/components/TwitterLink'
 import AboutMe from 'src/components/AboutMe'
 import CodeBlock from 'src/components/CodeBlock'
 import Caption from 'src/components/Caption'
@@ -26,7 +25,6 @@ import ResultHighlight from 'src/components/ResultHighlight'
 import Emoji from 'src/components/Emoji'
 import InternalLink from 'src/components/InternalLink'
 import { articlesData } from 'src/lib/articles'
-import { baseUrl } from 'src/lib/meta'
 import TodoWithData from 'src/components/TodoWithData'
 
 const techniques = [
@@ -95,7 +93,7 @@ const refactoringCardProps = (index: number) => ({
 const Page = () => (
   <PostPage
     hideIntroQuote
-    articleKey="refactor"
+    articleKey="todo"
     cards={[
       {
         title: <>代码和教程都可以重构</>,
@@ -175,12 +173,6 @@ const Page = () => (
                 Even if you’ve never written a coding tutorial, you might know
                 someone who has (maybe one of your Twitter followers). I’d
                 appreciate it if you could share this article with them. You can{' '}
-                <TwitterLink
-                  title={articlesData['refactor']['title']}
-                  url={`${baseUrl}/refactor`}
-                >
-                  click here to tweet this article.
-                </TwitterLink>
               </P>
             </>
           )
@@ -226,7 +218,7 @@ const Page = () => (
             <P>
               Here’s another example I used for my tutorial called “
               <InternalLink href="/generics">
-                <em>{articlesData['generics']['title']}</em>
+                {/* <em>{articlesData['generics']['title']}</em> */}
               </InternalLink>
               ”. This is <strong>good</strong> formatting (
               <Emoji type="check" /> fits on a small screen):
@@ -1173,15 +1165,6 @@ const Page = () => (
               rewriting”.
             </P>
             <Hr />
-            <P>
-              You can{' '}
-              <TwitterLink
-                title={articlesData['refactor']['title']}
-                url={`${baseUrl}/refactor`}
-              >
-                click here to tweet this article.
-              </TwitterLink>
-            </P>
           </>
         ),
         footer: {

@@ -5,7 +5,6 @@ import EmojiSeparator from 'src/components/EmojiSeparator'
 import CodeBlock from 'src/components/CodeBlock'
 import * as snippets from 'src/lib/snippets'
 import RunButtonText from 'src/components/RunButtonText'
-import Emoji from 'src/components/Emoji'
 import ReadMore from 'src/components/ReadMore'
 import AboutMe from 'src/components/AboutMe'
 
@@ -80,29 +79,24 @@ const Page = () => (
                 </>
               }
             />
-            <P>
-              It printed <Code>1</Code>, then <Code>2</Code>. Pretty simple,
-              right?
-            </P>
+            <P>它打印了1，然后是2。很简单，对吗？</P>
           </>
         ),
         footer: {
           content: (
             <>
               <P>
-                If you’ve used React, you might have realized that{' '}
-                <Code>makeState()</Code> is similar to the{' '}
-                <Code>useState()</Code> hook.
+                如果你使用过React，你可能已经意识到makeState()与useState()钩子函数相似。
               </P>
               <P></P>
               <ReadMore
                 showReadMoreTextWhenVisible
-                readMoreText="If so, click here for more explanation."
+                readMoreText="如果是这样，点击这里查看"
                 preview={readMore => (
                   <P>
-                    <strong>Confused?</strong> Some people might be wondering:
-                    “Why do we have functions inside another function?” or
-                    “What’s the <Code>{`{ getState, setState }`}</Code> syntax?”
+                    你感到困惑吗？有些人可能会疑惑。"为什么我们在另一个函数里面有函数？"或者"
+                    <Code>{`{ getState, setState }`}</Code>
+                    的语法是什么？
                     {readMore}
                   </P>
                 )}
@@ -110,34 +104,10 @@ const Page = () => (
                   <>
                     <Ul>
                       <UlLi>
-                        The above code has functions (<Code>getState()</Code>,{' '}
-                        <Code>setState()</Code>) inside another function (
-                        <Code>makeState()</Code>). This is because I’m using{' '}
-                        <strong>closure</strong>, which is one of the most
-                        important concepts in JavaScript. If you’ve never heard
-                        of closure, I highly recommend you to Google it. Here’s
-                        a{' '}
-                        <A href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures">
-                          MDN article
-                        </A>
-                        .
-                      </UlLi>
-                      <UlLi>
-                        The <Code>{`{ getState, setState }`}</Code> syntax is
-                        the ES2015 feature of JavaScript (
-                        <A href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer">
-                          shorthand property names
-                        </A>{' '}
-                        and{' '}
-                        <A href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">
-                          object destructuring
-                        </A>
-                        ). If you’ve never seen it, I recommend learning the
-                        ES2015 syntax—
-                        <A href="https://github.com/DrkSephy/es6-cheatsheet">
-                          here’s a good cheat sheet
-                        </A>
-                        .
+                        上面的代码在函数makeState()里面有函数getState(),
+                        setState()。这是因为我使用了闭包，它是JavaScript中最重要的概念之一。
+                        - <Code>{`{ getState, setState }`}</Code>
+                        语法是JavaScript的ES2015特性中的解构赋值
                       </UlLi>
                     </Ul>
                   </>
@@ -148,13 +118,11 @@ const Page = () => (
         }
       },
       {
-        title: <>What if we use a string?</>,
+        title: <>如果我们使用一个字符串呢？</>,
         content: (
           <>
             <P>
-              Now, instead of numbers like <Code>1</Code> or <Code>2</Code>,{' '}
-              what happens if we use a <em>string</em> like <Code>'foo'</Code>?
-              Try to guess first, and then{' '}
+              现在，如果我们不使用1或2这样的数字，而是使用'foo'这样的字符串，会发生什么？先试着猜一下，然后按下编译按钮。
               <Highlight>
                 press the <RunButtonText compile /> button
               </Highlight>
@@ -177,20 +145,14 @@ const Page = () => (
                 </>
               }
             />
-            <P>
-              It failed to compile because <Code>setState()</Code> expects a
-              number:
-            </P>
+            <P>编译失败了，因为setState()需要传入一个数字。</P>
             <CodeBlock
               snippet={snippets.nnyl}
               shouldHighlight={(lineIndex, tokenIndex) =>
                 lineIndex === 8 && tokenIndex > 4 && tokenIndex < 8
               }
             />
-            <P>
-              To fix this, we can change the type of <Code>state</Code> and{' '}
-              <Code>x</Code> from <Code>number</Code> to <Code>string</Code>:
-            </P>
+            <P>为了解决这个问题，我们可以将state和x的类型从数字改为字符串。</P>
             <CodeBlock
               snippet={snippets.gkgi}
               shouldHighlight={(lineIndex, tokenIndex) =>
@@ -199,7 +161,7 @@ const Page = () => (
               }
             />
             <P>
-              It’ll now work!{' '}
+              现在它可以工作了!
               <Highlight>
                 Press <RunButtonText />.
               </Highlight>
@@ -209,34 +171,29 @@ const Page = () => (
         )
       },
       {
-        title: <>Challenge: Two different states</>,
+        title: <>挑战：两个不同的state状态</>,
         content: (
           <>
-            <P>Now that we got the basics down, here’s a challenge for you:</P>
+            <P>现在，我们已经掌握了基本知识，这里有一个给你的挑战:</P>
             <P>
-              <strong>Question:</strong> Can we modify <Code>makeState()</Code>{' '}
-              such that, it can create <em>two different states</em>: one that
-              only allows numbers, and the other that only allows strings?
+              <strong>问题:</strong> 问题：我们能否修改makeState()，使其能够创建{' '}
+              <strong>两种</strong>{' '}
+              不同的状态：一种只允许接收数字，另一种只允许接收字符串？
             </P>
-            <P>Here’s what I mean:</P>
+            <P>我的意思是:</P>
             <CodeBlock snippet={snippets.bfka} />
             <P>
-              Earlier, our first <Code>makeState()</Code> created number-only
-              states, and our second <Code>makeState()</Code> created
-              string-only states. However, it couldn’t create both number-only
-              states and string-only states.
+              在前面，我们的第一个makeState()创建了纯数字的状态，第二个makeState()创建了纯字符串的状态。然而，它不能同时创建纯数字的状态和纯字符串的状态。
             </P>
-            <P>
-              How can we modify <Code>makeState()</Code> to achieve our goal?
-            </P>
+            <P>我们如何修改makeState()来实现我们的目标？</P>
           </>
         )
       },
       {
-        title: <>Attempt 1: Does this work?</>,
+        title: <>尝试 1: 它能正常工作吗?</>,
         content: (
           <>
-            <P>Here’s the first attempt. Does this work?</P>
+            <P>这里是第一种尝试，一起看看</P>
             <CodeBlock
               snippet={snippets.ystu}
               shouldHighlight={(lineIndex, tokenIndex) =>
@@ -245,24 +202,20 @@ const Page = () => (
               }
             />
             <P>
-              <strong>This does NOT work.</strong> You’ll end up creating a
-              state that allows both numbers and strings, which is not what we
-              want. Instead, we want <Code>makeState()</Code> to support
-              creating two different states: one that allows only numbers, and
-              the other that allows only strings.
+              这样做是行不通的。
+              你最终会创建一个同时允许数字和字符串的状态，这不是我们想要的。相反，我们希望makeState()支持创建
+              <strong>两种</strong>
+              不同的状态：一种是只允许数字，另一种是只允许字符串。
             </P>
             <CodeBlock snippet={snippets.qqic} />
           </>
         )
       },
       {
-        title: <>Attempt 2: Use generics</>,
+        title: <>尝试 2: 使用泛型</>,
         content: (
           <>
-            <P>
-              This is where <strong>generics</strong> come in. Take a look
-              below:
-            </P>
+            <P>这就是泛型的作用，请看下面的例子:</P>
             <CodeBlock
               snippet={snippets.brze}
               shouldHighlight={(lineIndex, tokenIndex) =>
@@ -272,26 +225,22 @@ const Page = () => (
               }
             />
             <P>
-              <Code>makeState()</Code> is now defined as{' '}
-              <Code>makeState&lt;S&gt;()</Code>. You can think of{' '}
-              <Code>&lt;S&gt;</Code> as another thing that you have to pass in
-              when you call the function. But instead of passing a value, you
-              pass a <strong>type</strong> to it.
+              <Code>makeState()</Code> 现在被定义为{' '}
+              <Code>makeState&lt;S&gt;()</Code>. 你可以把 <Code>&lt;S&gt;</Code>{' '}
+              看作是你在调用该函数时必须传入的另一个东西。
+              <strong> 但你不是传递一个值，而是传递一个类型给它。</strong>
             </P>
             <P>
-              For example, you can pass the type <Code>number</Code> as{' '}
-              <Code>S</Code> when you call <Code>makeState()</Code>:
+              例如，当你调用makeState()时，你可以把类型数字<Code>number</Code>{' '}
+              作为 <Code>S</Code>传递。
             </P>
             <CodeBlock snippet={snippets.jdhu} />
             <P>
-              Then, inside the function definition of <Code>makeState()</Code>,{' '}
-              <Code>S</Code> will become <Code>number</Code>:
+              然后，在<Code>makeState()</Code>的函数定义里面，S将变成数字类型。:
             </P>
             <CodeBlock snippet={snippets.rebo} />
             <P>
-              Because <Code>state</Code> will be <Code>number</Code> and{' '}
-              <Code>setState</Code> will only take <Code>number</Code>, it
-              creates a number-only state.
+              因为state将是数字类型，而setState只接受数字，所以它创建了一个纯数字的状态。
             </P>
             <CodeBlock
               snippet={snippets.gjgg}
@@ -300,9 +249,7 @@ const Page = () => (
               }
             />
             <P>
-              On the other hand, to create a string-only state, you can pass{' '}
-              <Code>string</Code> as <Code>S</Code> when you call{' '}
-              <Code>makeState()</Code>:
+              另一方面，为了创建一个纯字符串的state，你可以在调用makeState()时将字符串作为S传递。
             </P>
             <CodeBlock
               snippet={snippets.hkgv}
@@ -311,16 +258,14 @@ const Page = () => (
               }
             />
             <P>
-              <strong>Note:</strong> We call <Code>makeState&lt;S&gt;()</Code> a{' '}
-              <strong>“generic function”</strong> because it’s literally
-              generic—you have a choice to make it number-only or string-only.
-              And you know it’s a generic function if it takes a type parameter.
+              <strong>注意:</strong> 我们称 <Code>makeState&lt;S&gt;()</Code> 为
+              "泛型函数"，因为它实际上是泛型的--你可以选择让它只包含数字或只包含字符串。如果它接受一个类型参数，你就知道它是一个通用函数
             </P>
             <CodeBlock
               snippet={snippets.brze}
               caption={
                 <>
-                  <Code>makeState&lt;S&gt;()</Code> is a generic function
+                  <Code>makeState&lt;S&gt;()</Code> 是一个泛型函数
                 </>
               }
             />
@@ -329,32 +274,26 @@ const Page = () => (
         footer: {
           content: (
             <>
+              <P>你可能想知道。为什么我们将类型参数命名为 "S"？</P>
               <P>
-                <strong>You might be wondering:</strong> Why did we name the
-                type parameter as “<Code>S</Code>”?
-              </P>
-              <P>
-                <strong>Answer:</strong> It could actually be any name, but
-                usually people use the first letter of a word that describes
-                what the type is representing. In this case, I chose “
-                <Code>S</Code>” because it’s describing the type of a{' '}
-                <strong>“S”</strong>tate. The following names are also common:
+                答案是。它实际上可以是任何名字，但通常人们使用一个词的第一个字母来描述该类型所代表的内容。在这种情况下，我选择了
+                "S"，因为它描述的是 "S "状态的类型。以下名称也很常见。
               </P>
               <Ul>
                 <UlLi>
-                  <Code>T</Code> (for <strong>“T”</strong>
+                  <Code>T</Code> (代表 <strong>“T”</strong>
                   ype)
                 </UlLi>
                 <UlLi>
-                  <Code>E</Code> (for <strong>“E”</strong>
+                  <Code>E</Code> (代表 <strong>“E”</strong>
                   lement)
                 </UlLi>
                 <UlLi>
-                  <Code>K</Code> (for <strong>“K”</strong>
+                  <Code>K</Code> (代表 <strong>“K”</strong>
                   ey)
                 </UlLi>
                 <UlLi>
-                  <Code>V</Code> (for <strong>“V”</strong>
+                  <Code>V</Code> (代表 <strong>“V”</strong>
                   alue)
                 </UlLi>
               </Ul>
@@ -363,37 +302,25 @@ const Page = () => (
         }
       },
       {
-        title: <>Problem: You can create a boolean state!</>,
+        title: <>问题: 你可以创建一个布尔类型的state</>,
         content: (
           <>
             <P>
-              <strong>But wait a minute:</strong> If you pass{' '}
-              <Code>boolean</Code> to <Code>S</Code>, you can create a
-              boolean-only state.
+              但是等一下，如果你把boolean传给S，你就可以创建一个只有boolean的状态。
             </P>
             <CodeBlock snippet={snippets.llvc} />
             <P>
-              <strong>Maybe we might NOT want this to be allowed.</strong>{' '}
-              Suppose that don’t want <Code>makeState()</Code> to be able to
-              create non-number or non-string states (like <Code>boolean</Code>
-              ). How can we ensure this?
+              假设我们不希望makeState()能够创建非数字或非字符串的state（如布尔值）。我们怎样才能确保这一点呢？
             </P>
             <EmojiSeparator
               emojis={['question', 'chickEgg', 'question']}
-              description={
-                <>
-                  How can we prevent <Code>makeState()</Code> from
-                  <br />
-                  creating non-number or non-string states?
-                </>
-              }
+              description={<>如何让makeState() 只接受数字或字符串？</>}
             />
             <P>
-              <strong>The solution:</strong> When you declare{' '}
-              <Code>makeState()</Code>, you change the type parameter{' '}
-              <Code>&lt;S&gt;</Code> to{' '}
-              <Code>&lt;S extends number | string&gt;</Code>. That’s the only
-              change you need to make.
+              <strong>解决办法:</strong> 当你声明 <Code>makeState()</Code>
+              ,时，你把类型参数 <Code>&lt;S&gt;</Code> 改为{' '}
+              <Code>&lt;S extends number | Œstring&gt;</Code>.
+              这是你唯一需要做的改变。
             </P>
             <CodeBlock
               snippet={snippets.mngc}
@@ -402,14 +329,11 @@ const Page = () => (
               }
             />
             <P>
-              By doing this, when you call <Code>makeState()</Code>, you’d only
-              be able to pass <Code>number</Code>, <Code>string</Code>, or any
-              other type that extends either <Code>number</Code> or{' '}
-              <Code>string</Code> as <Code>S</Code>.
+              通过这样做，当你调用<Code>makeState()</Code>
+              时，你只能将数字、字符串或任何其他扩展了数字或字符串的类型作为S传递。
             </P>
             <P>
-              Let’s see what happens now when you try to pass{' '}
-              <Code>boolean</Code> as <Code>S</Code>.{' '}
+              我们看看当你试图将布尔值作为S传递时会发生什么
               <Highlight>
                 Press <RunButtonText compile /> below
               </Highlight>
@@ -434,39 +358,31 @@ const Page = () => (
               }
             />
             <P>
-              It resulted in an error, which is what we want! We have
-              successfully prevented <Code>makeState()</Code> from creating
-              non-number or non-string states.
+              它产生了一个错误，而这正是我们想要的。我们已经成功地阻止了makeState()创建非数字或非字符串状态。
             </P>
             <P>
-              As you just saw, you can specify what’s allowed for the type
-              parameter(s) of a generic function.
+              正如你刚才看到的，你可以指定泛型函数的类型参数是你允许的范围。
             </P>
           </>
         )
       },
       {
-        title: <>Default type</>,
+        title: <>默认类型</>,
         content: (
           <>
             <P>
-              It can be annoying to specify types like{' '}
-              <Code>&lt;number&gt;</Code> or <Code>&lt;string&gt;</Code> every
-              time you call <Code>makeState()</Code>.
+              每次调用<Code>makeState()</Code>时都要指定{' '}
+              <Code>&lt;number&gt;</Code> 或 <Code>&lt;string&gt;</Code>{' '}
+              这样的类型，这很烦人。
             </P>
             <P>
-              <strong>So here’s an idea:</strong> Can we make it so that{' '}
-              <Code>&lt;number&gt;</Code> is the
-              <em>default type parameter</em> of <Code>makeState()</Code>? We
-              want to make it so that, if <Code>S</Code> is unspecified, it’s
-              set as <Code>number</Code> by default.
+              所以我有个想法。我们能不能让<Code>&lt;number&gt;</Code>
+              成为makeState()的默认类型参数？我们想让它变成这样，如果S没有被指定，它将被默认设置为number。
             </P>
             <CodeBlock snippet={snippets.xfwf} />
             <P>
-              To make this happen, we can specify the default type of{' '}
-              <Code>S</Code> by adding <Code>= number</Code> at the end. It’s
-              kind of like setting default values for regular function
-              parameters, right?
+              为了实现这一点，我们可以通过在最后添加<Code>=number</Code>{' '}
+              来指定S的默认类型。这有点像为普通函数参数设置默认值，不是吗？
             </P>
             <CodeBlock
               snippet={snippets.thxf}
@@ -474,67 +390,51 @@ const Page = () => (
                 lineIndex === 2 && tokenIndex > 10 && tokenIndex < 14
               }
             />
-            <P>
-              By doing this, you can create a number-only state without
-              specifying the type:
-            </P>
+            <P>通过这样做，你可以在不指定类型的情况下创建一个纯数字的状态。</P>
             <CodeBlock snippet={snippets.gzwe} />
           </>
         )
       },
       {
         color: 'green',
-        title: 'Quick recap: Just like regular function parameters',
+        title: '快速回顾：就像普通函数参数一样',
         content: (
           <>
             <P>
-              We are about <em>two-thirds</em> of the way through this article.
-              Before we continue, let’s do a quick recap.
+              我们已经完成了本文约三分之二的内容。在我们继续之前，让我们做一个简单的回顾。
             </P>
             <P>
-              What you should remember is that{' '}
-              <em>generics are just like regular function parameters.</em> The
-              difference is that regular function parameters deal with values,
-              but generics deal with type parameters.
+              你应该记住的是，<strong>泛型就像普通的函数参数</strong>{' '}
+              。不同的是，普通函数参数处理的是<strong>值</strong>{' '}
+              ，而泛型处理的是<strong>类型参数</strong> 。
             </P>
             <Hr />
             <P>
-              <strong>Example 1:</strong> For example, here’s a regular function
-              that takes any value:
+              <strong>例 1:</strong>{' '}
+              例如，这里有一个普通的函数，可以传入任何类型的值。
             </P>
             <CodeBlock snippet={snippets.wpru} />
-            <P>
-              Similarly, you can declare a generic function with a type
-              parameter:
-            </P>
+            <P>类似地，你可以声明一个带有类型参数的泛型函数。</P>
             <CodeBlock snippet={snippets.bqvz} />
             <Hr />
             <P>
-              <strong>Example 2:</strong> In regular functions, you can specify
-              the type of a parameter like this:
+              <strong>例 2:</strong>{' '}
+              在常规函数中，你可以这样指定一个参数的类型。
             </P>
             <CodeBlock snippet={snippets.qini} />
-            <P>
-              Similarly, you can specify what’s allowed for the type parameter
-              of a generic function:
-            </P>
+            <P>同样地，你可以指定泛型函数的类型参数允许的内容:</P>
             <CodeBlock snippet={snippets.kbld} />
             <Hr />
             <P>
-              <strong>Example 3:</strong> In regular functions, you can specify
-              the default value of a parameter like this:
+              <strong>例 3:</strong>{' '}
+              在常规函数中，你可以这样指定一个参数的默认值:
             </P>
             <CodeBlock snippet={snippets.pjcw} />
-            <P>
-              Similarly, you can specify the default type for a generic
-              function:
-            </P>
+            <P>同样地，你可以为一个泛型函数指定默认类型:</P>
             <CodeBlock snippet={snippets.nyih} />
             <Hr />
             <P>
-              Generics are not scary. They’re like regular function parameters,
-              but instead of values, it deals with types. If you understood this
-              much, you’re good to go!
+              泛型并不可怕。它们就像普通的函数参数，但它处理的是类型，而不是值。如果你理解了这么多，你就可以继续看下去了！
             </P>
           </>
         )
@@ -542,22 +442,20 @@ const Page = () => (
       {
         title: (
           <>
-            Let’s talk about <Code>makePair</Code>
+            让我们谈谈 <Code>makePair</Code>
           </>
         ),
         content: (
           <>
             <P>
-              Let’s take a look at the new function called{' '}
-              <Code>makePair()</Code>. It’s similar to <Code>makeState()</Code>,
-              but instead of storing a single value, this one stores a pair of
-              values as <Code>{`{ first: ?, second: ? }`}</Code>. Right now, it
-              only supports numbers.
+              让我们来看看新的函数 <Code>makePair()</Code>. 它类似于{' '}
+              <Code>makeState()</Code>,
+              但它不是存储一个单一的值，而是存储一对值，如{' '}
+              <Code>{`{ first: ?, second: ? }`}</Code>， 现在，它只支持数字。
             </P>
             <CodeBlock snippet={snippets.ugeb} />
             <P>
-              Let’s try it out! What gets printed out to the console when you
-              run the following code? Try to guess first, and then{' '}
+              让我们试试吧,当你运行下面的代码时，控制台会打印出什么？先试着猜一下，然后按下运行按钮。
               <Highlight>
                 press the <RunButtonText /> button
               </Highlight>
@@ -574,8 +472,8 @@ const Page = () => (
               }
             />
             <P>
-              Now, just as we did for <Code>makeState()</Code>, let’s turn{' '}
-              <Code>makePair()</Code> into a generic function.
+              现在，就像我们对 <Code>makeState()</Code>, 所做的那样，让我们把{' '}
+              <Code>makePair()</Code> 变成一个通用函数。
             </P>
           </>
         )
@@ -583,60 +481,45 @@ const Page = () => (
       {
         title: (
           <>
-            Generic <Code>makePair</Code>
+            泛型<Code>makePair</Code>
           </>
         ),
         content: (
           <>
             <P>
-              Here’s a generic version of <Code>makePair</Code>.
+              这里有一个泛型版本的<Code>makePair</Code>.
             </P>
             <Ul>
-              <UlLi>
-                It takes <em>two</em> type parameters <Code>F</Code> and{' '}
-                <Code>S</Code> (for “F”irst and “S”econd).
-              </UlLi>
-              <UlLi>
-                The type of <Code>first</Code> will be <Code>F</Code>.
-              </UlLi>
-              <UlLi>
-                The type of <Code>second</Code> will be <Code>S</Code>.
-              </UlLi>
+              <UlLi>它需要两个类型参数F和S（代表 “F”irst 和 “S”econd）。</UlLi>
+              <UlLi>第一个的类型将是F。</UlLi>
+              <UlLi>第二个的类型将是S。</UlLi>
             </Ul>
             <CodeBlock snippet={snippets.rxdm} />
             <P>
-              Here’s an example usage. By calling <Code>makePair</Code> with{' '}
-              <Code>&lt;number, string&gt;</Code>, it forces <Code>first</Code>{' '}
-              to be <Code>number</Code> and <Code>second</Code> to be{' '}
-              <Code>string</Code>.
+              这里有一个用法的例子。调用makePair并且传入
+              <Code>&lt;number, string&gt;</Code>
+              ，它要求第一个参数类型是数字，第二个参数类型是字符串。
             </P>
             <CodeBlock snippet={snippets.gozc} />
             <Hr />
-            <P>
-              To summarize, you can create a generic function that takes{' '}
-              <strong>multiple type parameters</strong>.
-            </P>
+            <P>总而言之，你可以创建一个接受多个类型参数的通用函数。</P>
             <CodeBlock snippet={snippets.qgxj} />
-            <P>
-              Of course, you can also use the <Code>extends</Code> keyword or
-              default types like before:
-            </P>
+            <P>当然，你也可以像以前一样使用extends关键字或默认类型。</P>
             <CodeBlock snippet={snippets.nbvo} />
             <P>
-              You can even make the second type (<Code>S</Code>) to be related
-              to the first type (<Code>F</Code>). Here’s an example:
+              你甚至可以让第二种类型（S）与第一种类型（F）相关。这里有一个例子。
             </P>
             <CodeBlock snippet={snippets.xekh} />
           </>
         )
       },
       {
-        title: <>Generic interfaces and type aliases</>,
+        title: <>泛型接口（Generic interfaces）和类型别名（type aliases）</>,
         content: (
           <>
             <P>
-              Let’s go back to our previous implementation of{' '}
-              <Code>makePair()</Code>. Now, take a look at the type of{' '}
+              让我们回到我们之前的<Code>makePair()</Code>
+              的实现。现在，看一下正确的类型。
               <Code>pair</Code>:
             </P>
             <CodeBlock
@@ -646,38 +529,27 @@ const Page = () => (
               }
             />
             <P>
-              This works as is, but if we want to, we can refactor{' '}
-              <Code>{`{ first: F, second: S }`}</Code> into an{' '}
-              <strong>interface</strong> or a <strong>type alias</strong> so it
-              can be reused.
+              上面的代码可以按原样工作，但如果我们想的话，我们可以把
+              <Code>{`{ first: F, second: S }`}</Code>{' '}
+              变成一个接口或类型别名，这样它就可以被重用了。
             </P>
             <P>
-              Let’s first extract the type of <Code>pair</Code> into a{' '}
-              <strong>generic interface</strong>. I’ll use <Code>A</Code> and{' '}
-              <Code>B</Code> as type parameter names to distinguish them from
-              the type parameters of <Code>makePair()</Code>.
+              让我们首先把配对的类型提取到一个泛型接口中。我将使用A和B作为类型参数名，以区别于
+              <Code>makePair()</Code>的类型参数。
             </P>
             <CodeBlock snippet={snippets.lldl} />
-            <P>
-              We can then use this interface to declare the type for{' '}
-              <Code>pair</Code>.
-            </P>
+            <P>然后我们可以使用这个接口来声明类型。</P>
             <CodeBlock snippet={snippets.cqrm} />
             <P>
-              By extracting into a generic interface (an interface that takes
-              type parameters), we can reuse it in other places if necessary.
+              通过提取到一个泛型接口（一个接受类型参数的接口），我们可以在必要时在其他地方重新使用它。
             </P>
             <Hr />
             <P>
-              Alternatively, we can extract it into a{' '}
-              <strong>generic type alias</strong>. For object types, type
-              aliases are basically identical to interfaces, so you can use
-              whichever one you prefer.
+              或者，我们也可以把它提取到一个通用类型别名中。对于对象类型，类型别名基本上与接口相同，所以你可以使用你喜欢的任何一种。
             </P>
             <CodeBlock snippet={snippets.qgea} />
             <P>
-              To summarize, you can create generic interfaces and type aliases,
-              just as you can create generic functions.
+              总而言之，你可以创建通用接口和类型别名，就像你可以创建泛型函数一样。
             </P>
           </>
         ),
@@ -685,30 +557,28 @@ const Page = () => (
           content: (
             <>
               <P>
-                To learn more about interfaces v.s. type aliases,{' '}
+                要了解更多关于接口和类型别名的信息，请阅读{' '}
                 <A href="https://stackoverflow.com/a/52682220/114157">
-                  read this StackOverflow answer
+                  StackOverflow的答案
                 </A>
-                . As of TypeScript 3.7, which added a{' '}
+                . 从TypeScript 3.7开始，它增加了对
                 <A href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html">
-                  support for recursive type aliases
+                  递归类型别名的支持
                 </A>
-                , type aliases can cover pretty much all of the use cases of
-                interfaces.
+                , 类型别名可以涵盖接口的几乎所有使用情况
               </P>
             </>
           )
         }
       },
       {
-        title: <>Generic classes</>,
+        title: <>泛型类</>,
         content: (
           <>
             <P>
-              The last thing we’ll cover is <strong>generic classes</strong>.
-              First, let’s revisit the code for <Code>makeState()</Code>. This
-              is the generic version that doesn’t use <Code>extends</Code> or
-              default type parameters.
+              我们要讲的最后一个是泛型类。首先，让我们重温一下
+              <Code>makeState()</Code>
+              的代码。这是不使用扩展或泛型类型参数的通用版本。
             </P>
             <CodeBlock
               snippet={snippets.brze}
@@ -719,20 +589,15 @@ const Page = () => (
               }
             />
             <P>
-              We can turn <Code>makeState()</Code> into a generic class called{' '}
-              <Code>State</Code> like below. It looks similar to{' '}
-              <Code>makeState()</Code>, right?
+              我们可以把<Code>makeState()</Code>
+              变成一个叫做State的泛型类，如下列代码。它看起来与
+              <Code>makeState()</Code>相似，对吗？
             </P>
             <CodeBlock snippet={snippets.mroc} />
-            <P>
-              To use this, you just need to pass a type parameter on
-              initialization.
-            </P>
+            <P>要使用泛型类，只需要在初始化的时候传入一个类型参数。</P>
             <CodeBlock snippet={snippets.zdbq} />
             <P>
-              To summarize, generic classes are just like generic functions.
-              Generic functions take a type parameter when we call them, but
-              generic classes take a type parameter when we instantiate them.
+              总而言之，泛型类就像泛型函数一样。泛型函数在我们调用它时需要一个类型参数，但泛型类在我们实例化它时需要一个类型参数。
             </P>
           </>
         ),
@@ -740,31 +605,21 @@ const Page = () => (
           content: (
             <>
               <P>
-                You need to set{' '}
-                <Code>"strictPropertyInitialization": false</Code> on TypeScript
-                config (<Code>tsconfig.json</Code>) to get the above code to
-                compile.
+                你需要在TypeScript配置（tsconfig.json）上设置{' '}
+                <Code>"strictPropertyInitialization": false</Code>{' '}
+                以使上述代码能够编译。
               </P>
             </>
           )
         }
       },
       {
-        title: <>That’s all you need to know!</>,
+        title: <>这就是你所需要知道的!</>,
         content: (
           <>
             <EmojiSeparator emojis={['sparkles', 'smilingCat', 'sparkles']} />
             <P>
-              Thanks for reading! That’s all you need to know about generics in
-              TypeScript. Hope I made generics less scary to you.
-            </P>
-            <P>
-              If you’d like me to write about some other topics on TypeScript,
-              or if you have feedback, please let me know on{' '}
-              <A href="https://twitter.com/chibicode">
-                <Emoji type="twitter" /> Twitter at @chibicode
-              </A>
-              .
+              感谢阅读! 泛型所需要了解的就是这些。希望能让你不那么害怕泛型。
             </P>
           </>
         ),
