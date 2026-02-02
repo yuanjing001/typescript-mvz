@@ -99,7 +99,7 @@ const CodeBlockHighlight = ({
                   if (children === '// __home__') {
                     updatedChildren = (
                       <>
-                        // -> returns{' '}
+                        {'// -> returns '}{' '}
                         <StringHighlight>
                           '<Emoji type="home" /> Home'
                         </StringHighlight>
@@ -109,7 +109,7 @@ const CodeBlockHighlight = ({
                   if (children === '// __work__') {
                     updatedChildren = (
                       <>
-                        // -> returns{' '}
+                        {'// -> returns '}{' '}
                         <StringHighlight>
                           '<Emoji type="work" /> Work'
                         </StringHighlight>
@@ -119,7 +119,7 @@ const CodeBlockHighlight = ({
                   if (children === '// __gym__') {
                     updatedChildren = (
                       <>
-                        // -> returns{' '}
+                        {'// -> returns '}{' '}
                         <StringHighlight>
                           '<Emoji type="pin" /> Gym'
                         </StringHighlight>
@@ -129,7 +129,7 @@ const CodeBlockHighlight = ({
                   if (children === '// __supermarket__') {
                     updatedChildren = (
                       <>
-                        // -> returns{' '}
+                        {'// -> returns '}{' '}
                         <StringHighlight>
                           '<Emoji type="pin" /> Supermarket'
                         </StringHighlight>
