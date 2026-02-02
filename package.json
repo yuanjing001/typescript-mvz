@@ -16,7 +16,7 @@
     "react-spring": "^8.0.27"
   },
   "scripts": {
-    "dev": "next",   
+    "dev": "next",
     "build": "next build && next export",
     "export": "next export",
     "deploy": "npm run build && touch out/.nojekyll",
@@ -34,6 +34,7 @@
     "@types/color": "^3.0.0",
     "@types/glob": "^7.1.1",
     "@types/luxon": "^1.21.0",
+    "@types/minimatch": "^5.1.2",
     "@types/node": "^12.12.20",
     "@types/prettier": "^1.19.0",
     "@types/react": "^16.9.16",
