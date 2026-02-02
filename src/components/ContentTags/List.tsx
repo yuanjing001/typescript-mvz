@@ -10,9 +10,8 @@ const commonListCss = css`
 
 const commonListItemCss = css`
   &::before {
-    /* Style taken from medium.com,
-    removed position: absolute because it was
-    not vertically aligning with emojis */
+    /* 样式取自 medium.com，
+    移除了 position: absolute 因为它无法与 emoji 垂直对齐 */
     display: inline-block;
     width: 3.5em;
     margin-left: -3.5em;

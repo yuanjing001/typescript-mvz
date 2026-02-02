@@ -45,7 +45,7 @@ const GlobalStyles = ({ children }: { children: React.ReactNode }) => {
             }
 
             strong {
-              font-weight: bold; /* Instead of bolder */
+              font-weight: bold; /* 使用 bold 而不是 bolder */
             }
 
             svg {

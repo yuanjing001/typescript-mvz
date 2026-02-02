@@ -1,4 +1,4 @@
-// Converted from Yi light theme
+// 从 Yi light 主题转换而来
 // https://github.com/FormidableLabs/prism-react-renderer/tree/master/tools/themeFromVsCode
 import { PrismTheme } from 'prism-react-renderer'
 

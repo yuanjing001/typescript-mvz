@@ -15,9 +15,9 @@ const ButtonWithTouchActiveStates = ({
   const [isActive, setIsActive] = useState(false)
   const activate = () => {
     if (!props.disabled) {
-      // NOTE: Originally tried to call the callback here and do e.preventDefault()
-      // to prevent mouse click event from happening, so that callback fires
-      // on tap start instead of on tap end, but that was buggy so ended up removing.
+      // 注意：最初尝试在这里调用回调并执行 e.preventDefault()
+      // 以防止鼠标点击事件发生，使回调在点击开始时触发而不是结束时触发，
+      // 但这样做有 bug，所以最终移除了
       setIsActive(true)
     }
   }

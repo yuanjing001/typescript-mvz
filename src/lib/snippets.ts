@@ -1,4 +1,4 @@
-export const bfka = `// 我们希望修改make state()来支持
+export const bfka = `// 我们希望修改makestate()来支持
 // 创建两种不同的states:
 
 // 一个只允许数字的，而且…
@@ -11,12 +11,12 @@ const strState = makeState()
 strState.setState('foo')
 console.log(strState.getState()) // foo`
 
-export const bqvz = `// Declare a generic function
+export const bqvz = `// 声明一个泛型函数
 function genericFunc<T>() {
-  // You can use T here
+  // 你可以在这里使用 T
 }
 
-// Call it: T will be number
+// 调用它：T 将是 number
 genericFunc<number>()`
 
 export const brze = `function makeState<S>() {
@@ -33,7 +33,7 @@ export const brze = `function makeState<S>() {
   return { getState, setState }
 }`
 
-export const bwyu = `// Confused by generics code like this?
+export const bwyu = `// 对这样的泛型代码感到困惑？
 function makePair<
   F extends number | string,
   S extends boolean | F
@@ -48,7 +48,7 @@ setState(2)
 console.log(getState())`
 
 export const cqrm = `function makePair<F, S>() {
-  // Usage: Pass F for A and S for B
+  // 用法：将 F 传递给 A，将 S 传递给 B
   let pair: Pair<F, S>
 
   // ...
@@ -106,25 +106,25 @@ export const dngl = `function makeState<
   return { getState, setState }
 }
 
-// What happens if we now pass boolean to S?
+// 如果我们现在传递 boolean 给 S 会怎样？
 const boolState = makeState<boolean>()`
 
-export const gjgg = `// Creates a number-only state
+export const gjgg = `// 创建一个只允许数字的 state
 const numState = makeState<number>()
 numState.setState(1)
 console.log(numState.getState())
 
-// numState.setState('foo') will fail!`
+// numState.setState('foo') 会失败！`
 
 export const gkgi = `function makeState() {
-  // Change to string
+  // 改为 string
   let state: string
 
   function getState() {
     return state
   }
 
-  // Accepts a string
+  // 接受一个 string
   function setState(x: string) {
     state = x
   }
@@ -132,13 +132,13 @@ export const gkgi = `function makeState() {
   return { getState, setState }
 }`
 
-export const gozc = `// Creates a (number, string) pair
+export const gozc = `// 创建一个 (number, string) 对
 const { getPair, setPair } = makePair<
   number,
   string
 >()
 
-// Must pass (number, string)
+// 必须传递 (number, string)
 setPair(1, 'hello')`
 
 export const gzwe = `// Don’t need to use <number>
@@ -147,14 +147,14 @@ const numState = makeState()
 numState.setState(1)
 console.log(numState.getState())`
 
-export const hkgv = `// Creates a string-only state
+export const hkgv = `// 创建一个只允许字符串的 state
 const strState = makeState<string>()
 strState.setState('foo')
 console.log(strState.getState())
 
-// strState.setState(1) will fail!`
+// strState.setState(1) 会失败！`
 
-export const jdhu = `// It sets S as number
+export const jdhu = `// 它将 S 设置为 number
 makeState<number>()`
 
 export const jejx = `const { getPair, setPair } = makePair()
@@ -165,22 +165,22 @@ console.log(getPair())
 setPair(3, 4)
 console.log(getPair())`
 
-export const kbld = `// Limits the type of T
+export const kbld = `// 限制 T 的类型
 function genericFunc<T extends number>()
 
-// Success
+// 成功
 genericFunc<number>()
-// Error
+// 错误
 genericFunc<string>()`
 
-export const lldl = `// Extract into a generic interface
-// to make it reusable
+export const lldl = `// 提取为泛型接口
+// 使其可重用
 interface Pair<A, B> {
   first: A
   second: B
 }`
 
-export const llvc = `// Creates a boolean-only state
+export const llvc = `// 创建一个只允许布尔值的 state
 const boolState = makeState<boolean>()
 boolState.setState(true)
 console.log(boolState.getState())`
@@ -217,7 +217,7 @@ export const nnyl = `function makeState() {
     return state
   }
 
-  // setState() expects a number
+  // setState() 期望一个 number
   function setState(x: number) {
     state = x
   }
@@ -246,21 +246,21 @@ const state = makeState<number, string>()
 state.setState(1, 'cat')
 console.log(state.getState())`
 
-export const nyih = `// Set the default type of T
+export const nyih = `// 设置 T 的默认类型
 function genericFunc<T = number>()
 
-// T will be number inside the function
+// T 在函数内部将是 number
 genericFunc()`
 
 export const osaa = `function makeState() {
-  // Change to string
+  // 改为 string
   let state: string
 
   function getState() {
     return state
   }
 
-  // Accepts a string
+  // 接受一个 string
   function setState(x: string) {
     state = x
   }
@@ -273,10 +273,10 @@ const { getState, setState } = makeState()
 setState('foo')
 console.log(getState())`
 
-export const pjcw = `// Set the default value of x
+export const pjcw = `// 设置 x 的默认值
 function regularFunc(x = 2)
 
-// x will be 2 inside the function
+// x 在函数内部将是 2
 regularFunc()`
 
 export const qgea = `// Extract into a generic type alias. It’s
@@ -286,18 +286,18 @@ type Pair<A, B> = {
   second: B
 }`
 
-export const qgxj = `// makeState() has 1 type parameter
+export const qgxj = `// makeState() 有 1 个类型参数
 function makeState<S>()
 
-// makePair() has 2 type parameters
+// makePair() 有 2 个类型参数
 function makePair<F, S>()`
 
-export const qini = `// Specify x to be number
+export const qini = `// 指定 x 为 number
 function regularFunc(x: number)
 
-// Success
+// 成功
 regularFunc(1)
-// Error
+// 错误
 regularFunc('foo')`
 
 export const qqic = `// 不通过，因为创建的状态…
@@ -314,7 +314,7 @@ console.log(numAndStrState.getState())
 // 这不是我们想要的。我们想要创造
 // 仅数字和仅字符串`
 
-export const rebo = `// In the function definition of makeState()
+export const rebo = `// 在 makeState() 的函数定义中
 let state: S // <- number
 
 function setState(x: S /* <- number */) {
@@ -340,11 +340,11 @@ export const rxdm = `function makePair<F, S>() {
 
 export const stkh = `const { getState, setState } = makeState()
 
-// What happens if we use a string instead?
+// 如果我们使用字符串会怎样？
 setState('foo')
 console.log(getState())`
 
-export const thxf = `// Set the default type of S as number
+export const thxf = `// 将 S 的默认类型设置为 number
 function makeState<
   S extends number | string = number
 >()`
@@ -372,14 +372,14 @@ setState(2)
 console.log(getState())`
 
 export const ugeb = `function makePair() {
-  // Stores a pair of values
+  // 存储一对值
   let pair: { first: number; second: number }
 
   function getPair() {
     return pair
   }
 
-  // Stores x as first and y as second
+  // 将 x 存储为 first，y 存储为 second
   function setPair(x: number, y: number) {
     pair = {
       first: x,
@@ -390,12 +390,12 @@ export const ugeb = `function makePair() {
   return { getPair, setPair }
 }`
 
-export const wpru = `// Declare a regular function
+export const wpru = `// 声明一个普通函数
 function regularFunc(x: any) {
-  // You can use x here
+  // 你可以在这里使用 x
 }
 
-// Call it: x will be 1
+// 调用它：x 将是 1
 regularFunc(1)`
 
 export const xeax = `const { getState, setState } = makeState()
@@ -421,10 +421,10 @@ makePair<string, string>()
 // but instead it’s string
 makePair<number, string>()`
 
-export const xfwf = `// Can we make it so that, <number> is the
-// default type paramter of makeState()?
+export const xfwf = `// 我们能否让 <number> 成为
+// makeState() 的默认类型参数？
 
-// We want these two statements to be equivalent
+// 我们希望这两个语句是等价的
 const numState1 = makeState()
 const numState2 = makeState<number>()`
 
@@ -442,12 +442,12 @@ export const ystu = `function makeState() {
   return { getState, setState }
 }`
 
-export const zdbq = `// Pass a type parameter on initialization
+export const zdbq = `// 在初始化时传递类型参数
 const numState = new State<number>()
 
 numState.setState(1)
 
-// Prints 1
+// 打印 1
 console.log(numState.getState())`
 
 export const zhql = `function makeState() {
@@ -469,18 +469,18 @@ const { getState, setState } = makeState()
 setState('foo')
 console.log(getState())`
 
-export const bxzx = `// It could have been useful if you could pass
-// both number AND string, and have it repeat
-// the string the specified number of times
+export const bxzx = `// 如果你可以同时传递
+// number 和 string，并让它重复
+// 字符串指定的次数，那会很有用
 padLeft('Hello world', 4, '#')
 // → "####Hello world"`
 
-export const crgn = `// If the second parameter is string, then
-// that string is appended to the left side
+export const crgn = `// 如果第二个参数是 string，那么
+// 该字符串会附加到左侧
 padLeft('Hello world', 'Jim: ')
 // → "Jim: Hello world"
 
-// Ask yourself: Would you EVER do this?`
+// 问问自己：你会这样做吗？`
 
 export const hfdq = `function paddingLeftCss(val: number | string) {
   if (typeof val === 'number') {
@@ -503,24 +503,24 @@ export const mvsz = `function makePair<F extends number | string, S extends bool
 
 export const zgvn = `type Todo = Readonly<{ id: number; text: string; done: boolean; place: Place }>`
 
-export const lcfe = `// If the second parameter is number, then that
-// number of spaces is added to the left side
+export const lcfe = `// 如果第二个参数是 number，那么
+// 会在左侧添加该数量的空格
 padLeft('Hello world', 4)
 // → "    Hello world"
 
-// If the second parameter is string, then
-// that string is appended to the left side
+// 如果第二个参数是 string，那么
+// 该字符串会附加到左侧
 padLeft('Hello world', 'Jim: ')
 // → "Jim: Hello world"`
 
 export const riis = `/**
- * Takes a string and adds "padding" to the left.
+ * 接受一个字符串并在左侧添加"填充"。
  *
- * If 'padding' is a number, then that number of
- * spaces is added to the left side.
+ * 如果 'padding' 是数字，则在左侧
+ * 添加该数量的空格。
  *
- * If 'padding' is a string, then 'padding' is
- * appended to the left side.
+ * 如果 'padding' 是字符串，则将 'padding'
+ * 附加到左侧。
  */
 function padLeft(
   value: string,
@@ -594,7 +594,7 @@ export const xwbz = `function makePair<
 
 export const ampt = `function toggleTodo(todo: Todo): Todo {
   return {
-    // This line was missing
+    // 这行之前缺失了
     id: todo.id,
     text: todo.text,
     done: !todo.done
@@ -613,7 +613,7 @@ export const bpmz = `type CompletedTodo = Readonly<{
   done: true
 }>`
 
-export const csum = `// Parameter "todo" must match the Todo type
+export const csum = `// 参数 "todo" 必须匹配 Todo 类型
 function toggleTodo(todo: Todo) {
   // ...
 }`
@@ -632,8 +632,8 @@ export const dxfc = `// Associated data. If we're using React, this
 ]`
 
 export const eega = `else {
-  // place = 'work' or { custom: string }, and
-  // place.custom is invalid if place = 'work'
+  // place = 'work' 或 { custom: string }，并且
+  // 如果 place = 'work'，place.custom 是无效的
   return 'pinEmoji ' + place.custom
 }`
 
@@ -643,8 +643,8 @@ export const frtm = `type Todo = {
   done: boolean
 }
 
-// Make sure that the input and the output
-// are of the correct type (both must be Todo)
+// 确保输入和输出
+// 都是正确的类型（都必须是 Todo）
 function toggleTodo(todo: Todo): Todo {
   // ...
 }`
@@ -654,7 +654,7 @@ export const hquv = `[
   // ...
   // ...
   // ...
-  // No place property
+  // 没有 place 属性
   { id: 5, text: 'Read a book', done: false }
 ]`
 
@@ -668,11 +668,11 @@ export const hszk = `function completeAll(
 }`
 
 export const kuzw = `function completeAll(todos: Todo[]): Todo[] {
-  // We want it to return a new array
-  // instead of modifying the original array
+  // 我们希望它返回一个新数组
+  // 而不是修改原始数组
 }`
 
-export const lgci = `// Input is an array of Todo items: Todo[]
+export const lgci = `// 输入是 Todo 项目的数组：Todo[]
 function completeAll(todos: Todo[]) {
   // ...
 }`
@@ -685,17 +685,17 @@ export const lieq = `type Todo = {
 
 export const dhor = `type Place = 'home' | 'work' | { custom: string }
 
-// TypeScript knows what the type of "place"
-// would be at each point inside the function
+// TypeScript 知道 "place" 的类型
+// 在函数内每个位置会是什么
 function placeToString(place: Place): string {
-  // In here, place = 'home', 'work' or { custom:… }
+  // 在这里，place = 'home', 'work' 或 { custom:… }
 
   if (place === 'home') {
-    // In here, place = 'home'
+    // 在这里，place = 'home'
 
     return 'homeEmoji Home'
   } else {
-    // In here, place = 'work' or { custom: string }
+    // 在这里，place = 'work' 或 { custom: string }
 
     return 'pinEmoji ' + place.custom
   }
@@ -703,7 +703,7 @@ function placeToString(place: Place): string {
 
 export const fawy = `type Place = 'home' | 'work' | { custom: string }
 
-// They all compile
+// 它们都会编译
 const place1: Place = 'home'
 const place2: Place = 'work'
 const place3: Place = { custom: 'Gym' }
@@ -734,18 +734,18 @@ type Todo = Readonly<{
   id: number
   text: string
   done: boolean
-  // place is optional
+  // place 是可选的
   place?: Place
 }>`
 
-export const szco = `// Correct implementation
+export const szco = `// 正确的实现
 function placeToString(place: Place): string {
   if (place === 'home') {
     return 'homeEmoji Home'
   } else if (place === 'work') {
     return 'workEmoji Work'
   } else {
-    // place is guaranteed to be { custom: string }
+    // place 保证是 { custom: string }
     return 'pinEmoji ' + place.custom
   }
 }`
@@ -788,18 +788,18 @@ console.log(\`{ id: 1, text: '…', done: false }\`)
 console.log('Actual:')
 console.log(result)`
 
-export const mnmy = `// Output is an array of Todo items: Todo[]
+export const mnmy = `// 输出是 Todo 项目的数组：Todo[]
 function completeAll(todos: Todo[]): Todo[] {
   // ...
 }`
 
-export const mwrj = `// After declaring todos as readonly Todo[],
-// the following code WILL NOT compile:
+export const mwrj = `// 将 todos 声明为 readonly Todo[] 后，
+// 以下代码将无法编译：
 
-// Compile error - modifies the array
+// 编译错误 - 修改了数组
 todos[0] = { id: 1, text: '…', done: true }
 
-// Compile error - push() modifies the array
+// 编译错误 - push() 修改了数组
 todos.push({ id: 1, text: '…', done: true })`
 
 export const mxqy = `type Todo = Readonly<{
@@ -808,11 +808,11 @@ export const mxqy = `type Todo = Readonly<{
   done: boolean
 }>`
 
-export const mzyn = `// Creates a union type of number and string
+export const mzyn = `// 创建 number 和 string 的联合类型
 type Foo = number | string
 
-// You can assign either a number or a string
-// variable to Foo. So these will both compile:
+// 你可以将 number 或 string
+// 变量赋值给 Foo。所以这两个都会编译：
 const a: Foo = 1
 const b: Foo = 'hello'`
 
@@ -847,7 +847,7 @@ export const npog = `type Todo = Readonly<{
   id: number
   text: string
   done: boolean
-  // place is optional
+  // place 是可选的
   place?: Place
 }>`
 
@@ -860,7 +860,7 @@ export const ntau = `function toggleTodo(todo: Todo): Todo {
   }
 }`
 
-export const nxyl = `// Readonly<...> makes each property readonly
+export const nxyl = `// Readonly<...> 使每个属性都变为只读
 type Todo = Readonly<{
   id: number
   text: string
@@ -874,7 +874,7 @@ export const okva = `console.log(
   ])
 )`
 
-export const oone = `// Returns an array where "done" is all true
+export const oone = `// 返回一个 "done" 都为 true 的数组
 function completeAll(
   todos: readonly Todo[]
 ): CompletedTodo[] {
@@ -887,10 +887,10 @@ export const qaqa = `type Foo = {
 
 type ReadonlyFoo = Readonly<Foo>
 
-// ReadonlyFoo is { readonly bar: number }`
+// ReadonlyFoo 是 { readonly bar: number }`
 
-export const qbgu = `// We said earlier that
-// toggleTodo must return a new todo object.
+export const qbgu = `// 我们之前说过
+// toggleTodo 必须返回一个新的 todo 对象。
 function toggleTodo(todo) {
   // ...
 }`
@@ -944,7 +944,7 @@ export const rmuo = `type Todo = Readonly<{
   done: boolean
 }>
 
-// Override the done property of Todo
+// 覆盖 Todo 的 done 属性
 type CompletedTodo = Todo & {
   readonly done: true
 }`
@@ -955,15 +955,15 @@ export const ruga = `function completeAll(
   // ...
 }`
 
-export const szan = `// Make input todos as readonly array
+export const szan = `// 将输入 todos 设为只读数组
 function completeAll(
   todos: readonly Todo[]
 ): Todo[] {
   // ...
 }`
 
-export const tdbp = `// Takes an array of todo items and returns
-// a new array where "done" is all true
+export const tdbp = `// 接受一个 todo 项目数组并返回
+// 一个 "done" 都为 true 的新数组
 function completeAll(todos) {
   // ...
 }`
@@ -985,8 +985,8 @@ export const vgnq = `type Todo = {
   readonly done: boolean
 }
 
-// Earlier implementation: it will continue to
-// work because the input todo is not modified
+// 之前的实现：它将继续
+// 工作，因为输入的 todo 没有被修改
 function toggleTodo(todo: Todo): Todo {
   return {
     id: todo.id,
@@ -995,28 +995,28 @@ function toggleTodo(todo: Todo): Todo {
   }
 }`
 
-export const vpco = `// Takes a single todo object and returns
-// a new todo object containing the opposite
-// boolean value for the "done" proprty.
+export const vpco = `// 接受一个 todo 对象并返回
+// 一个新的 todo 对象，其中包含
+// "done" 属性的相反布尔值。
 function toggleTodo(todo) {
   // ...
 }
 
-// Example usage:
+// 示例用法：
 
 toggleTodo({ id: …, text: '…', done: true })
-// -> returns { id: …, text: '…', done: false }
+// -> 返回 { id: …, text: '…', done: false }
 
 toggleTodo({ id: …, text: '…', done: false })
-// -> returns { id: …, text: '…', done: true }`
+// -> 返回 { id: …, text: '…', done: true }`
 
 export const wdjp = `type A = { a: number }
 type B = { b: string }
 
-// This intersection type…
+// 这个交叉类型…
 type AandB = A & B
 
-// …is equivalent to:
+// …等价于：
 type AandB = {
   a: number
   b: string
@@ -1027,28 +1027,28 @@ export const whae = `function completeAll(
 ): CompletedTodo[] {
   return todos.map(todo => ({
     ...todo,
-    // What if we set done to false?
+    // 如果我们将 done 设置为 false 会怎样？
     done: false
   }))
 }`
 
 export const xrwn = `type Todo = Readonly<{
-  // id and text are the same as CompletedTodo
+  // id 和 text 与 CompletedTodo 相同
   id: number
   text: string
   done: boolean
 }>
 
 type CompletedTodo = Readonly<{
-  // id and text are the same as Todo
+  // id 和 text 与 Todo 相同
   id: number
   text: string
   done: true
 }>`
 
 export const ybhj = `function placeToString(place: Place): string {
-  // Takes a Place and returns a string
-  // that can be used for the place label UI
+  // 接受一个 Place 并返回一个字符串
+  // 可用于 place 标签 UI
 }`
 
 export const yhto = `type Todo = {
@@ -1058,37 +1058,37 @@ export const yhto = `type Todo = {
 }`
 
 export const yvpp = `type Foo = {
-  // bar is an optional property because of "?"
+  // bar 是可选属性，因为有 "?"
   bar?: number
 }
 
-// These will both compile:
-// bar can be present or missing
+// 这两个都会编译：
+// bar 可以存在或缺失
 const a: Foo = {}
 const b: Foo = { bar: 1 }`
 
-export const ywiv = `// The return value must match the Todo type
+export const ywiv = `// 返回值必须匹配 Todo 类型
 function toggleTodo(todo: Todo): Todo {
   // ...
 }`
 
 export const yxjg = `function toggleTodo(todo) {
   return {
-    // This line was missing
+    // 这行之前缺失了
     id: todo.id,
     text: todo.text,
     done: !todo.done
   }
 }`
 
-export const yztr = `// How to update this to support place labels?
+export const yztr = `// 如何更新它以支持 place 标签？
 type Todo = Readonly<{
   id: number
   text: string
   done: boolean
 }>`
 
-export const zswn = `// Will this compile?
+export const zswn = `// 这会编译吗？
 const testTodo: CompletedTodo = {
   id: 1,
   text: '…',
