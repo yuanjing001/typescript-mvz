@@ -3,8 +3,8 @@ import { DateTime } from 'luxon'
 export const articleKeys: ReadonlyArray<keyof typeof articlesData> = [
   // 'refactor',
   'todo',
-  'generics',
-  'interface'
+  'interface',
+  'generics'
 ]
 
 export const articlesData = {
