@@ -177,14 +177,31 @@ const CodeBlock = ({
                       border: 2px solid ${colors('lightBrown')};
                       color: ${colors('black')};
                       padding: ${spaces(0.75)} ${spaces(1.25)};
+                      transition: all 0.2s ease;
+                      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
                       &:enabled {
                         cursor: pointer;
+                        animation: pulse 2s ease-in-out infinite;
+                      }
+
+                      @keyframes pulse {
+                        0%, 100% {
+                          transform: scale(1);
+                          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                        }
+                        50% {
+                          transform: scale(1.05);
+                          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+                        }
                       }
 
                       @media (hover: hover) {
                         &:hover:enabled {
                           background: ${colors('lightPink1')};
+                          transform: scale(1.08);
+                          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+                          animation: none;
                         }
                         &:focus {
                           box-shadow: inset 0 0 0 1px ${colors('lightBrown')};
@@ -193,6 +210,7 @@ const CodeBlock = ({
                       }
                       &:active:enabled {
                         background: ${colors('lightPink1')};
+                        transform: scale(0.98);
                       }
                     `
                   ]}
