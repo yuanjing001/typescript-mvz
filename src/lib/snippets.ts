@@ -279,8 +279,8 @@ function regularFunc(x = 2)
 // x 在函数内部将是 2
 regularFunc()`
 
-export const qgea = `// Extract into a generic type alias. It’s
-// basically identical to using an interface
+export const qgea = `// 提取为泛型类型别名。
+// 它基本上与使用接口相同
 type Pair<A, B> = {
   first: A
   second: B
@@ -1094,3 +1094,274 @@ const testTodo: CompletedTodo = {
   text: '…',
   done: false
 }`
+
+// Interface 相关代码片段
+export const ifBasic = `// 定义一个接口
+interface User {
+  name: string
+  age: number
+}`
+
+export const ifBasicUsage = `interface User {
+  name: string
+  age: number
+}
+
+// 创建一个符合接口的对象
+const user: User = {
+  name: 'Alice',
+  age: 25
+}`
+
+export const ifVsType = `// 使用接口
+interface UserInterface {
+  name: string
+  age: number
+}
+
+// 使用类型别名
+type UserType = {
+  name: string
+  age: number
+}
+
+// 两者在这种情况下几乎相同
+const user1: UserInterface = { name: 'Alice', age: 25 }
+const user2: UserType = { name: 'Bob', age: 30 }`
+
+export const ifExtends = `// 基础接口
+interface Person {
+  name: string
+  age: number
+}
+
+// 扩展接口
+interface Employee extends Person {
+  employeeId: string
+  department: string
+}`
+
+export const ifExtendsUsage = `interface Person {
+  name: string
+  age: number
+}
+
+interface Employee extends Person {
+  employeeId: string
+  department: string
+}
+
+// Employee 必须包含所有属性
+const employee: Employee = {
+  name: 'Alice',
+  age: 30,
+  employeeId: 'E001',
+  department: 'Engineering'
+}`
+
+export const ifMultipleExtends = `interface Named {
+  name: string
+}
+
+interface Aged {
+  age: number
+}
+
+// 同时扩展多个接口
+interface Person extends Named, Aged {
+  email: string
+}`
+
+export const ifOptional = `interface Product {
+  id: number
+  name: string
+  price: number
+  // description 是可选的
+  description?: string
+}`
+
+export const ifOptionalUsage = `interface Product {
+  id: number
+  name: string
+  price: number
+  description?: string
+}
+
+// 两种情况都有效
+const product1: Product = {
+  id: 1,
+  name: 'Laptop',
+  price: 999
+}
+
+const product2: Product = {
+  id: 2,
+  name: 'Mouse',
+  price: 29,
+  description: 'Wireless mouse'
+}`
+
+export const ifReadonly = `interface Config {
+  readonly id: string
+  readonly apiUrl: string
+  timeout: number
+}`
+
+export const ifReadonlyError = `interface Config {
+  readonly id: string
+  timeout: number
+}
+
+const config: Config = {
+  id: 'app-001',
+  timeout: 3000
+}
+
+// 尝试修改只读属性
+config.id = 'app-002'`
+
+export const ifFunction = `interface Calculator {
+  // 定义一个函数类型
+  calculate(a: number, b: number): number
+}
+
+// 或者使用箭头函数语法
+interface Formatter {
+  format: (value: string) => string
+}`
+
+export const ifFunctionUsage = `interface Calculator {
+  calculate(a: number, b: number): number
+}
+
+const calculator: Calculator = {
+  calculate(a, b) {
+    return a + b
+  }
+}
+
+console.log(calculator.calculate(10, 5))`
+
+export const ifIndexSignature = `// 索引签名：允许任意字符串键
+interface StringDictionary {
+  [key: string]: string
+}
+
+// 数字索引签名
+interface NumberArray {
+  [index: number]: number
+}`
+
+export const ifIndexSignatureUsage = `interface StringDictionary {
+  [key: string]: string
+}
+
+const dict: StringDictionary = {
+  hello: '你好',
+  world: '世界',
+  typescript: 'TypeScript'
+}
+
+// 可以添加任意字符串属性
+dict.newKey = '新值'`
+
+export const ifMixedSignature = `interface Config {
+  // 固定属性
+  name: string
+  version: number
+  // 索引签名：其他任意属性
+  [key: string]: string | number
+}`
+
+export const ifMerging = `// 第一个声明
+interface Window {
+  title: string
+}
+
+// 第二个声明
+interface Window {
+  version: number
+}
+
+// 两个声明会自动合并
+// Window 现在有 title 和 version`
+
+export const ifMergingUsage = `interface Window {
+  title: string
+}
+
+interface Window {
+  version: number
+}
+
+// 使用合并后的接口
+const window: Window = {
+  title: 'My App',
+  version: 1
+}`
+
+export const ifImplements = `interface Animal {
+  name: string
+  makeSound(): void
+}
+
+// 类实现接口
+class Dog implements Animal {
+  name: string
+
+  constructor(name: string) {
+    this.name = name
+  }
+
+  makeSound() {
+    console.log('Woof!')
+  }
+}`
+
+export const ifImplementsError = `interface Animal {
+  name: string
+  makeSound(): void
+}
+
+// 缺少 makeSound 方法
+class Cat implements Animal {
+  name: string
+
+  constructor(name: string) {
+    this.name = name
+  }
+}`
+
+export const ifGeneric = `// 泛型接口
+interface Response<T> {
+  success: boolean
+  data?: T
+  error?: string
+}
+
+// 使用不同类型
+type UserResponse = Response<{
+  id: number
+  name: string
+}>
+
+type ErrorResponse = Response<never>`
+
+export const ifGenericUsage = `interface Response<T> {
+  success: boolean
+  data?: T
+  error?: string
+}
+
+const userResponse: Response<{ id: number; name: string }> = {
+  success: true,
+  data: { id: 1, name: 'Alice' }
+}
+
+const errorResponse: Response<never> = {
+  success: false,
+  error: 'Not found'
+}
+
+console.log(userResponse)
+console.log(errorResponse)`

@@ -3,7 +3,8 @@ import { DateTime } from 'luxon'
 export const articleKeys: ReadonlyArray<keyof typeof articlesData> = [
   // 'refactor',
   'todo',
-  'generics'
+  'generics',
+  'interface'
 ]
 
 export const articlesData = {
@@ -17,6 +18,12 @@ export const articlesData = {
     title: '泛型入门教程-写给TS多次从入门到放弃的人',
     date: DateTime.fromISO('2024-06-18T12:00:00Z'),
     description: 'TypeScript的泛型太难了？',
+    ogImage: 'generics'
+  },
+  interface: {
+    title: 'TypeScript 接口完全指南',
+    date: DateTime.fromISO('2024-06-18T12:00:00Z'),
+    description: '深入理解 TypeScript 接口的核心概念和实战应用',
     ogImage: 'generics'
   }
   // refactor: {
