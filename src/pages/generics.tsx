@@ -6,7 +6,6 @@ import CodeBlock from 'src/components/CodeBlock'
 import * as snippets from 'src/lib/snippets'
 import RunButtonText from 'src/components/RunButtonText'
 import ReadMore from 'src/components/ReadMore'
-import AboutMe from 'src/components/AboutMe'
 
 const Page = () => (
   <PostPage
@@ -622,10 +621,7 @@ const Page = () => (
               感谢阅读! 泛型所需要了解的就是这些。希望能让你不那么害怕泛型。
             </P>
           </>
-        ),
-        footer: {
-          content: <AboutMe />
-        }
+        )
       }
     ]}
   />

@@ -233,7 +233,7 @@ const Card = ({
                   color: ${colors('brown')};
                 `}
               >
-                Side Note
+                补充说明
               </h4>
               {footer.content}
             </div>

@@ -93,7 +93,7 @@ const ArticleList = ({
           }
         `}
       >
-        {ignoreArticleKey ? 'More ' : ''}Article
+        {ignoreArticleKey ? '更多 ' : ''}文章
         {filteredArticleKeys.length > 1 ? 's' : ''}
       </h4>
       <ul

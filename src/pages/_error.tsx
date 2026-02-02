@@ -27,9 +27,9 @@ const PageNotFound = () => {
             children: (
               <>
                 <P>
-                  <strong>Page not found!</strong>
+                  <strong>页面未找到！</strong>
                 </P>
-                <P>Take a look at the articles below:</P>
+                <P>看看下面的文章吧：</P>
               </>
             )
           }

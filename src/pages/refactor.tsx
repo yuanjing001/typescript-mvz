@@ -16,7 +16,6 @@ import {
   Blockquote
 } from 'src/components/ContentTags'
 import * as snippets from 'src/lib/snippets'
-import AboutMe from 'src/components/AboutMe'
 import CodeBlock from 'src/components/CodeBlock'
 import Caption from 'src/components/Caption'
 import CodeResult from 'src/components/CodeResult'
@@ -1166,10 +1165,7 @@ const Page = () => (
             </P>
             <Hr />
           </>
-        ),
-        footer: {
-          content: <AboutMe />
-        }
+        )
       }
     ]}
   />
