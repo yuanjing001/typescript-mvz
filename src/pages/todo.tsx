@@ -76,7 +76,7 @@ const Page = () => (
     articleKey="todo"
     cards={[
       {
-        title: <>Learn TypeScript by building a todo app</>,
+        title: <>通过构建 todo 应用学习 TypeScript</>,
         content: (
           <>
             <P>

@@ -10,7 +10,7 @@ export const articlesData = {
   todo: {
     title: 'TypeScript入门教程-以Todo应用为例',
     date: DateTime.fromISO('2024-06-18T12:00:00Z'),
-    description: 'Learn TypeScript by Building a Todo App',
+    description: '通过构建 Todo 应用学习 TypeScript',
     ogImage: 'todo-v2'
   },
   generics: {
