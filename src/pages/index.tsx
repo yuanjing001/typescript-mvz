@@ -14,7 +14,7 @@ export const FirstParagraph = () => (
     `}
   >
     <P>
-      <strong>你好!</strong> 你好！这个教程是为了帮助初学者程序员学习
+      <strong>你好!</strong> 这个教程是为了帮助初学者程序员学习
       TypeScript。我的教程可能对学习 TypeScript 的经验丰富的程序员没那么有用。
     </P>
     <P>
