@@ -104,7 +104,7 @@ const Card = ({
                   color: ${colors('white75')};
                 `}
               >
-                Slide{' '}
+                幻灯片{' '}
               </span>
               <span
                 css={css`

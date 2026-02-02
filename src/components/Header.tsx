@@ -46,14 +46,14 @@ const Header = ({ useH1 }: { useH1?: boolean }) => {
       <Component
         css={css`
           margin: 0;
-          line-height: ${useH1 ? lineHeights(3) : 'inherit'};
+          line-height: ${useH1 ? lineHeights(2.5) : 'inherit'};
           text-align: 'center';
-          font-size: ${fontSizes(useH1 ? 3 : 2)};
+          font-size: ${fontSizes(useH1 ? 2.2 : 2)};
           letter-spacing: ${useH1 ? letterSpacings('title') : 0};
 
           ${ns} {
-            line-height: ${useH1 ? lineHeights(5) : 'inherit'};
-            font-size: ${fontSizes(useH1 ? 3 : 2)};
+            line-height: ${useH1 ? lineHeights(3) : 'inherit'};
+            font-size: ${fontSizes(useH1 ? 2.5 : 2)};
           }
         `}
       >
